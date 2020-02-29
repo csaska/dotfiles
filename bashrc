@@ -11,6 +11,8 @@ alias ..='cd  ..';
 alias afs_home='cd /afs/apd.pok.ibm.com/u/csaska'
 
 
+export EDITOR=vim
+
 _git_prompt() {
   local ref="$(command git symbolic-ref -q HEAD 2>/dev/null)"
   echo "${ref:+ (${ref#refs/heads/})}"
@@ -29,7 +31,6 @@ _success_status() {
 #  PS1='\[\e[0;31m\]\w\[\e[m\]$(_git_prompt) \[\e[1;31m\]$(_failed_status)\[\e[m\]$(_success_status) '
 PS1='\[\e[0;36m\]\u:\W\[\e[m\]$(_git_prompt) \[\e[1;31m\]$(_failed_status)\[\e[m\]$(_success_status) '
 
-eval "$(direnv hook bash)"
 
 # Allow <C-s> to pass through to shell and programs
 stty -ixon -ixoff
